@@ -1,0 +1,17 @@
+1. I have first created a docker container using
+docker run -d --rm --name course -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=postgres -p 5432:5432 postgres:12
+
+2. After the docker container is created, create a server in pg-admin
+name it course-db
+Host name/address : localhost
+Port : 5432
+username : postgres
+password : admin
+
+3. After server creation, create a database in course-db using
+create database course;
+
+4. Configure the database in application.properties in the springboot application
+spring.datasource.url=jdbc:postgresql://localhost:5432/course
+
+5. Finally run the springboot application
